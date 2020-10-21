@@ -1,3 +1,0 @@
-/home/jombo/work/CLionProjects/another-mandelbrot/test_server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/jombo/work/CLionProjects/another-mandelbrot/test_server/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/jombo/work/CLionProjects/another-mandelbrot/test_server/cmake-build-debug/CMakeFiles/test_server.dir

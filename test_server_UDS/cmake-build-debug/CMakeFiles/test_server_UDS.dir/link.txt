@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/test_server_UDS.dir/main.c.o -o test_server_UDS 

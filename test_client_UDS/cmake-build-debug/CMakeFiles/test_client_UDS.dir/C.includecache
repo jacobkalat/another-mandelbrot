@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jombo/work/CLionProjects/another-mandelbrot/test_client_UDS/main.c
+stdio.h
+-
+sys/socket.h
+-
+sys/un.h
+-
+string.h
+-
+unistd.h
+-
+
