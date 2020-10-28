@@ -15,7 +15,8 @@
 int main() {
     int sockfd;
     char buffer[MAXLINE];
-    char *hello = "Hello from client";
+    //Data format "x y scale n max_iterations"
+    char *hello = "0 0 2 512 1024";
     struct sockaddr_in	 servaddr;
 
     // Creating socket file descriptor

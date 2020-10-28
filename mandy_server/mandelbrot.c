@@ -3,7 +3,6 @@
 //
 #include "graphics_utilities.h"
 #include "mandelbrot.h"
-#include "stdbool.h"
 
 unsigned int iterations(double complex p0,unsigned int max_iteration);
 

@@ -6,33 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/jake/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.h
-math.h
--
+/home/jake/CLionProjects/another-mandelbrot/mandy_client/main.c
 stdio.h
 -
 stdlib.h
 -
+unistd.h
+-
 string.h
 -
-
-/home/jake/CLionProjects/another-mandelbrot/mandy_client/xwindows_utilities.c
-xwindows_utilities.h
-/home/jake/CLionProjects/another-mandelbrot/mandy_client/xwindows_utilities.h
-graphics_utilities.h
-/home/jake/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.h
-
-/home/jake/CLionProjects/another-mandelbrot/mandy_client/xwindows_utilities.h
-X11/Xlib.h
+sys/types.h
 -
-X11/Xutil.h
+sys/socket.h
 -
-X11/Xos.h
+arpa/inet.h
 -
-stdlib.h
+netinet/in.h
 -
-math.h
--
-graphics_utilities.h
-/home/jake/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.h
 
