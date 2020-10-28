@@ -28,6 +28,8 @@ void *send_response(void  *rqst){
     */
     //  send the rgb_image_t data in the packet
 
+    char *mandy_data = ((struct rqst_udp_pkt *)rqst)->rqst_data;
+
     sprintf(hello,"Hello from server %d",((struct rqst_udp_pkt *)rqst)->number);
 
     // Note: In our multi-threaded server we need unique buffers for each thread so need to malloc
