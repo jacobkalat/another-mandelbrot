@@ -1,4 +1,1 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/jake/CLionProjects/another-mandelbrot/UDPClient
--- Configuring done
--- Generating done
--- Build files have been written to: /home/jake/CLionProjects/another-mandelbrot/UDPClient/cmake-build-debug
+CMakeLists.txt not found in /home/jake/CLionProjects/another-mandelbrot/UDPClient Select CMakeLists.txt file...

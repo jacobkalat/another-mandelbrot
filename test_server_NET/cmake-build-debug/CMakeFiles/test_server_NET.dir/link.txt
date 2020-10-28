@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/test_server_NET.dir/main.c.o CMakeFiles/test_server_NET.dir/UDP_Routines.c.o -o test_server_NET  -lpthread 

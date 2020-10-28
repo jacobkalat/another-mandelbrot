@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/test_client_NET.dir/main.c.o -o test_client_NET 
