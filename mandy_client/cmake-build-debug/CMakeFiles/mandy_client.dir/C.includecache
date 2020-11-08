@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/jake/CLionProjects/another-mandelbrot/mandy_client/main.c
+/home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/main.c
 stdio.h
 -
 stdlib.h
@@ -22,5 +22,9 @@ sys/socket.h
 arpa/inet.h
 -
 netinet/in.h
+-
+libconfig.h
+-
+argp.h
 -
 

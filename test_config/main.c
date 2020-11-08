@@ -23,15 +23,17 @@ int main(int argc, char **argv)
         config_destroy(cf);
         return(EXIT_FAILURE);
     }
-
+    //Lookup a boolean
     if (config_lookup_bool(cf, "enabled", &enabled))
         printf("Enabled: %s\n", enabled ? "Yep" : "Nope");
     else
         printf("Enabled is not defined\n");
 
+    //Lookup a string
     if (config_lookup_string(cf, "ldap.base", &base))
         printf("Host: %s\n", base);
 
+    //Lookup int array
     retries = config_lookup(cf, "ldap.retries");
     count = config_setting_length(retries);
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/jake/CLionProjects/another-mandelbrot/test_server_UDS
+# Install script for directory: /home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jake/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
