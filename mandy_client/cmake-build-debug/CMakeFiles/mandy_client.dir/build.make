@@ -62,10 +62,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client
+CMAKE_SOURCE_DIR = /home/jake/CLionProjects/another-mandelbrot/mandy_client
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug
+CMAKE_BINARY_DIR = /home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mandy_client.dir/depend.make
@@ -78,42 +78,42 @@ include CMakeFiles/mandy_client.dir/flags.make
 
 CMakeFiles/mandy_client.dir/main.c.o: CMakeFiles/mandy_client.dir/flags.make
 CMakeFiles/mandy_client.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/mandy_client.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mandy_client.dir/main.c.o -c /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/mandy_client.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mandy_client.dir/main.c.o -c /home/jake/CLionProjects/another-mandelbrot/mandy_client/main.c
 
 CMakeFiles/mandy_client.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mandy_client.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/main.c > CMakeFiles/mandy_client.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jake/CLionProjects/another-mandelbrot/mandy_client/main.c > CMakeFiles/mandy_client.dir/main.c.i
 
 CMakeFiles/mandy_client.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mandy_client.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/main.c -o CMakeFiles/mandy_client.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/mandy_client/main.c -o CMakeFiles/mandy_client.dir/main.c.s
 
 CMakeFiles/mandy_client.dir/graphics_utilities.c.o: CMakeFiles/mandy_client.dir/flags.make
 CMakeFiles/mandy_client.dir/graphics_utilities.c.o: ../graphics_utilities.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/mandy_client.dir/graphics_utilities.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mandy_client.dir/graphics_utilities.c.o -c /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/mandy_client.dir/graphics_utilities.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mandy_client.dir/graphics_utilities.c.o -c /home/jake/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.c
 
 CMakeFiles/mandy_client.dir/graphics_utilities.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mandy_client.dir/graphics_utilities.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.c > CMakeFiles/mandy_client.dir/graphics_utilities.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jake/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.c > CMakeFiles/mandy_client.dir/graphics_utilities.c.i
 
 CMakeFiles/mandy_client.dir/graphics_utilities.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mandy_client.dir/graphics_utilities.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.c -o CMakeFiles/mandy_client.dir/graphics_utilities.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.c -o CMakeFiles/mandy_client.dir/graphics_utilities.c.s
 
 CMakeFiles/mandy_client.dir/xwindows_utilities.c.o: CMakeFiles/mandy_client.dir/flags.make
 CMakeFiles/mandy_client.dir/xwindows_utilities.c.o: ../xwindows_utilities.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/mandy_client.dir/xwindows_utilities.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mandy_client.dir/xwindows_utilities.c.o -c /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/xwindows_utilities.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/mandy_client.dir/xwindows_utilities.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mandy_client.dir/xwindows_utilities.c.o -c /home/jake/CLionProjects/another-mandelbrot/mandy_client/xwindows_utilities.c
 
 CMakeFiles/mandy_client.dir/xwindows_utilities.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mandy_client.dir/xwindows_utilities.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/xwindows_utilities.c > CMakeFiles/mandy_client.dir/xwindows_utilities.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jake/CLionProjects/another-mandelbrot/mandy_client/xwindows_utilities.c > CMakeFiles/mandy_client.dir/xwindows_utilities.c.i
 
 CMakeFiles/mandy_client.dir/xwindows_utilities.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mandy_client.dir/xwindows_utilities.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/xwindows_utilities.c -o CMakeFiles/mandy_client.dir/xwindows_utilities.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/mandy_client/xwindows_utilities.c -o CMakeFiles/mandy_client.dir/xwindows_utilities.c.s
 
 # Object files for target mandy_client
 mandy_client_OBJECTS = \
@@ -129,7 +129,7 @@ mandy_client: CMakeFiles/mandy_client.dir/graphics_utilities.c.o
 mandy_client: CMakeFiles/mandy_client.dir/xwindows_utilities.c.o
 mandy_client: CMakeFiles/mandy_client.dir/build.make
 mandy_client: CMakeFiles/mandy_client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable mandy_client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable mandy_client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mandy_client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -142,6 +142,6 @@ CMakeFiles/mandy_client.dir/clean:
 .PHONY : CMakeFiles/mandy_client.dir/clean
 
 CMakeFiles/mandy_client.dir/depend:
-	cd /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug /home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/CMakeFiles/mandy_client.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jake/CLionProjects/another-mandelbrot/mandy_client /home/jake/CLionProjects/another-mandelbrot/mandy_client /home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug /home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug /home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/CMakeFiles/mandy_client.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/mandy_client.dir/depend
 

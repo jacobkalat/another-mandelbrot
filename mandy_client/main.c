@@ -24,6 +24,100 @@ int scale;
 
 const char* filename;
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//Request packet struct
+struct rqst_udp_pkt{
+    int number;
+    struct sockaddr_in * inet_cliaddr;
+    struct sockaddr_in * inet_svraddr;
+    int len;
+    char *rqst_data;
+};
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//Request packet setup
+struct rqst_udp_pkt * make_rqst()
+{
+    struct rqst_udp_pkt *rqst = (struct rqst_udp_pkt *) malloc(sizeof(struct rqst_udp_pkt));
+    rqst -> inet_cliaddr = (struct sockaddr_in *) malloc(sizeof(struct sockaddr_in));
+    rqst -> inet_svraddr = (struct sockaddr_in *) malloc(sizeof(struct sockaddr_in));
+    rqst -> rqst_data = (char *) malloc(MAXLINE);
+    return rqst;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//Open network socket
+int open_inet_server_socket(int port, struct rqst_udp_pkt * rqst_pkt)
+{
+    int sockfd;
+    struct sockaddr_in	 servaddr;
+    // Creating socket file descriptor
+    if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
+        perror("socket creation failed");
+        exit(EXIT_FAILURE);
+    }
+
+    memset(rqst_pkt->inet_svraddr, 0, sizeof(struct sockaddr_in));
+
+    // Filling server information
+    rqst_pkt->inet_svraddr->sin_family = AF_INET;
+    rqst_pkt->inet_svraddr->sin_port = htons(PORT);
+    rqst_pkt->inet_svraddr->sin_addr.s_addr = INADDR_ANY;
+
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//Send requests
+void send_requests(int sockfd,const struct sockaddr * svraddr,
+                   int image_number,
+                   complex double center,double scale,int real_segs,int imaginary_segs,int n)
+{
+    const double extent = 3.0;
+    int n_real = n/real_segs;           // n needs to be multiple of real_segs
+    int n_imaginary = n/imaginary_segs; // n needs to be multiple of imaginary_segs
+    char buffer[128];
+    const double delta_real = extent/(1.0*n_real*scale);
+    const double delta_imaginary = extent/(1.0*n_imaginary*scale);
+    const double start_real = creal(center)-extent/(2.*scale);
+    const double start_imaginary = cimag(center)-extent/(2.*scale);
+
+    // we  need to send start_real,start_imaginary,end_real,end_imaginary,n_real,n_imaginary)
+    int r_counter;
+    int i_counter;
+    double real_offset,real_end,imaginary_offset,imaginary_end;
+    for (r_counter=0;r_counter<real_segs; r_counter++)
+        for (i_counter=0;i_counter<imaginary_segs; i_counter++){
+            // make a packet
+            real_offset  = start_real + r_counter*delta_real;
+            real_end  = real_offset + delta_real;
+
+            imaginary_offset  = start_imaginary + r_counter*delta_imaginary;
+            imaginary_end  = imaginary_offset + delta_imaginary;
+            printf("\n %lf,%lf,%d,%lf,%lf,%d",real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
+            sprintf(buffer,"%d %lf,%lf,%d,%lf,%lf,%d",image_number,real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
+            int len = sizeof( struct sockaddr_un);
+            sendto(sockfd, (const char *)buffer, strlen(buffer),
+                   MSG_CONFIRM, (const struct sockaddr *) svraddr,
+                   len);
+
+
+
+        }
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//Receive response from server
+void await_responses(){
+    // expected image number
+    // dump all packets which are not expected
+    // we know how many packets for a completed image wait for those
+    // if time_out request resend... this should not happen on a single machine
+
+
+    // this could return the populated rgb image..
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Parsing function
 static int
 parse_opt(int key,char *arg, struct argp_state *state)
@@ -69,6 +163,8 @@ parse_opt(int key,char *arg, struct argp_state *state)
     return 0;
 }
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Driver code
 int main(int argc, char **argv)
 {
@@ -82,18 +178,14 @@ int main(int argc, char **argv)
     //Setting up the socket
     int sockfd;
     struct sockaddr_in	 servaddr;
-    // Creating socket file descriptor
-    if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
-        perror("socket creation failed");
-        exit(EXIT_FAILURE);
-    }
 
-    memset(&servaddr, 0, sizeof(servaddr));
-
-    // Filling server information
+    //Fill server info
     servaddr.sin_family = AF_INET;
     servaddr.sin_port = htons(PORT);
     servaddr.sin_addr.s_addr = INADDR_ANY;
+
+    struct rqst_udp_pkt * rqst_pkt= make_rqst();
+    sockfd = open_inet_server_socket(PORT, rqst_pkt);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Set up the config file
@@ -141,7 +233,7 @@ int main(int argc, char **argv)
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Test some stuff
-    printf("%f %d %f %d %d %d %s",real_center, real_segments, imaginary_center, imaginary_segments, scale, n, filename);
+    printf("%f %d %f %d %d %d %s\n",real_center, real_segments, imaginary_center, imaginary_segments, scale, n, filename);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     int num_bytes_read, len;

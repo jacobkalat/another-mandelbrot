@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/jombo/work/CLionProjects/another-mandelbrot/mandy_client/main.c
+/home/jake/CLionProjects/another-mandelbrot/mandy_client/main.c
 stdio.h
 -
 stdlib.h
