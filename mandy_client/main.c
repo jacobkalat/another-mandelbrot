@@ -9,6 +9,7 @@
 #include <netinet/in.h>
 #include <libconfig.h>
 #include <argp.h>
+#include <complex.h>
 
 #define PORT	 8080
 #define MAXLINE 1024
@@ -95,7 +96,7 @@ void send_requests(int sockfd,const struct sockaddr * svraddr,
             imaginary_end  = imaginary_offset + delta_imaginary;
             printf("\n %lf,%lf,%d,%lf,%lf,%d",real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
             sprintf(buffer,"%d %lf,%lf,%d,%lf,%lf,%d",image_number,real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
-            int len = sizeof( struct sockaddr_un);
+            int len = sizeof(const struct sockaddr_in);
             sendto(sockfd, (const char *)buffer, strlen(buffer),
                    MSG_CONFIRM, (const struct sockaddr *) svraddr,
                    len);
@@ -236,32 +237,10 @@ int main(int argc, char **argv)
     printf("%f %d %f %d %d %d %s\n",real_center, real_segments, imaginary_center, imaginary_segments, scale, n, filename);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    int num_bytes_read, len;
+//Send the requests
+    complex double center = real_center+imaginary_center*I;
 
-    //Issue requests to the server based on arguments
-    sendto(sockfd, (const char *)hello, strlen(hello),
-           MSG_CONFIRM, (const struct sockaddr *) &servaddr,
-           sizeof(servaddr));
-    printf("Hello message sent.\n");
-
-    sendto(sockfd, (const char *)hello, strlen(hello),
-           MSG_CONFIRM, (const struct sockaddr *) &servaddr,
-           sizeof(servaddr));
-    printf("Hello message sent.\n");
-
-
-    //Receive incoming responses from the server.
-    num_bytes_read = recvfrom(sockfd, (char *)buffer, MAXLINE,
-                 MSG_WAITALL, (struct sockaddr *) &servaddr,
-                 &len);
-    buffer[num_bytes_read] = '\0';
-    printf("Server : %s\n", buffer);
-
-    num_bytes_read = recvfrom(sockfd, (char *)buffer, MAXLINE,
-                 MSG_WAITALL, (struct sockaddr *) &servaddr,
-                 &len);
-    buffer[num_bytes_read] = '\0';
-    printf("Server : %s\n", buffer);
+    send_requests(sockfd,(struct sockaddr *) rqst_pkt->inet_svraddr,4,center,scale,real_segments,imaginary_segments,n);
 
     close(sockfd);
     return 0;
