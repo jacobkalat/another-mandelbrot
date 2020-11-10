@@ -15,7 +15,6 @@
 extern int gsockfd;
 
 void *send_response(void  *rqst){
-    char *hello = (char *)malloc(40);
 
     // ToDo
     // The request will have the region of interest
@@ -27,19 +26,20 @@ void *send_response(void  *rqst){
                                         unsigned int max_iteration)
     */
     //  send the rgb_image_t data in the packet
-
-    char *mandy_data = ((struct rqst_udp_pkt *)rqst)->rqst_data;
-
-    sprintf(hello,"Hello from server %d",((struct rqst_udp_pkt *)rqst)->number);
+    int image_number,n_real,n_imaginary;
+    double real_offset,real_end,imaginary_offset,imaginary_end;
+    sscanf(((struct rqst_udp_pkt *)rqst)->rqst_data,"%d %lf,%lf,%d,%lf,%lf,%d",
+           &image_number,&real_offset,&real_end,&n_real,&imaginary_offset,&imaginary_end,&n_imaginary);
+    printf("\nClient: %d %lf,%lf,%d,%lf,%lf,%d\n",image_number,real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
 
     // Note: In our multi-threaded server we need unique buffers for each thread so need to malloc
     sleep(rand()%5);
     struct sockaddr_in * cliaddr = ((struct rqst_udp_pkt *)rqst)->cliaddr;
-    sendto(gsockfd, (const char *)hello, strlen(hello),
-           MSG_CONFIRM, (const struct sockaddr *) cliaddr,
-           ((struct rqst_udp_pkt *)rqst)->len);
-
-    printf("Hello message sent.\n");
+//    sendto(gsockfd, (const char *)hello, strlen(hello),
+//           MSG_CONFIRM, (const struct sockaddr *) cliaddr,
+//           ((struct rqst_udp_pkt *)rqst)->len);
+//
+//    printf("Hello message sent.\n");
 
 }
 
@@ -52,7 +52,6 @@ void await_request(struct rqst_udp_pkt * rqst)
                  MSG_WAITALL, ( struct sockaddr *) rqst->cliaddr,
                  &(rqst->len));
     rqst->rqst_data[n] = '\0';
-    printf("Client : %s\n", rqst->rqst_data);
 }
 
 struct rqst_udp_pkt * make_rqst()

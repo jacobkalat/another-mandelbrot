@@ -23,10 +23,8 @@ int main() {
 
     pthread_t tid;
     gsockfd=open_inet_udp_socket(PORT);
-
     while (1) {
         //  await request
-
         struct rqst_udp_pkt *rqst=make_rqst();
         rqst->number=count;
         await_request(rqst);

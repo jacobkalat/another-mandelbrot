@@ -65,6 +65,7 @@ int open_inet_server_socket(int port, struct rqst_udp_pkt * rqst_pkt)
     rqst_pkt->inet_svraddr->sin_port = htons(PORT);
     rqst_pkt->inet_svraddr->sin_addr.s_addr = INADDR_ANY;
 
+    return sockfd;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -178,13 +179,6 @@ int main(int argc, char **argv)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Setting up the socket
     int sockfd;
-    struct sockaddr_in	 servaddr;
-
-    //Fill server info
-    servaddr.sin_family = AF_INET;
-    servaddr.sin_port = htons(PORT);
-    servaddr.sin_addr.s_addr = INADDR_ANY;
-
     struct rqst_udp_pkt * rqst_pkt= make_rqst();
     sockfd = open_inet_server_socket(PORT, rqst_pkt);
 
@@ -240,7 +234,7 @@ int main(int argc, char **argv)
 //Send the requests
     complex double center = real_center+imaginary_center*I;
 
-    send_requests(sockfd,(struct sockaddr *) rqst_pkt->inet_svraddr,4,center,scale,real_segments,imaginary_segments,n);
+    send_requests(sockfd,(struct sockaddr *) rqst_pkt->inet_svraddr,10,center,scale,real_segments,imaginary_segments,n);
 
     close(sockfd);
     return 0;
