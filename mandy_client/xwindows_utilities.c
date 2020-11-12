@@ -3,7 +3,7 @@
 //
 
 #include "xwindows_utilities.h"
-#include "graphics_utilities.h"
+#include "graphicslibrary.h"
 Display *dis;
 int screen;
 Window win;

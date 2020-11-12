@@ -1,1 +1,1 @@
-/usr/bin/cc -g CMakeFiles/mandy_client.dir/main.c.o CMakeFiles/mandy_client.dir/graphics_utilities.c.o CMakeFiles/mandy_client.dir/xwindows_utilities.c.o -o mandy_client  -lX11 -lm -lconfig 
+/usr/bin/cc -g CMakeFiles/mandy_client.dir/main.c.o CMakeFiles/mandy_client.dir/graphicslibrary.c.o CMakeFiles/mandy_client.dir/xwindows_utilities.c.o -o mandy_client  -lX11 -lm -lconfig 

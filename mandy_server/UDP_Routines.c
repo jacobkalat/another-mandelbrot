@@ -7,40 +7,48 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-
+#include <complex.h>
 #include <netinet/in.h>
 
 #include <pthread.h>
 #include "UDP_Routines.h"
+#include "graphicslibrary.h"
+#include "mandelbrot.h"
 extern int gsockfd;
 
 void *send_response(void  *rqst){
 
-    // ToDo
-    // The request will have the region of interest
-    // calc mandy of the region get the RGB and send it back.
-    /*
-     rgb_image_t * calculate_mandelbrot(double complex center,
-                                        double scale,
-                                        unsigned int n,
-                                        unsigned int max_iteration)
-    */
-    //  send the rgb_image_t data in the packet
-    int image_number,n_real,n_imaginary;
+    char *hello = (char *)malloc(40);
+
+    int image_number,n_real,n_imaginary,r_start,i_start;
     double real_offset,real_end,imaginary_offset,imaginary_end;
-    sscanf(((struct rqst_udp_pkt *)rqst)->rqst_data,"%d %lf,%lf,%d,%lf,%lf,%d",
-           &image_number,&real_offset,&real_end,&n_real,&imaginary_offset,&imaginary_end,&n_imaginary);
-    printf("\nClient: %d %lf,%lf,%d,%lf,%lf,%d\n",image_number,real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
+    sscanf(((struct rqst_udp_pkt *)rqst)->rqst_data,"%d %d %d %lf,%lf,%d,%lf,%lf,%d",
+           &image_number,&r_start,&i_start,&real_offset,&real_end,&n_real,&imaginary_offset,&imaginary_end,&n_imaginary);
+    printf("\n Block--> %lf,%lf,%d,%lf,%lf,%d",real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
+    sprintf(hello,"\n Hello from server %d",((struct rqst_udp_pkt *)rqst)->number);
+
+    double complex min = real_offset + imaginary_offset * 1i;
+    double complex max = real_end + imaginary_end * 1i;
+
+    rgb_image_t *image= calculate_mandelbrot2(min,max,n_real,n_imaginary,512);
+
+    const int header_size = 6;
+    char *pkt_data = malloc(n_real*n_imaginary*3+header_size*sizeof(int));
+    ((int *)pkt_data)[0]= image_number;
+    ((int *)pkt_data)[1]= r_start;
+    ((int *)pkt_data)[2]= i_start;
+    ((int *)pkt_data)[3]= n_real;
+    ((int *)pkt_data)[4]= n_imaginary;
+    ((int *)pkt_data)[5]= 0;
+    memcpy(pkt_data+header_size*sizeof(int),image->image_data,n_real*n_imaginary*3);
 
     // Note: In our multi-threaded server we need unique buffers for each thread so need to malloc
-    sleep(rand()%5);
-    struct sockaddr_in * cliaddr = ((struct rqst_udp_pkt *)rqst)->cliaddr;
-//    sendto(gsockfd, (const char *)hello, strlen(hello),
-//           MSG_CONFIRM, (const struct sockaddr *) cliaddr,
-//           ((struct rqst_udp_pkt *)rqst)->len);
-//
-//    printf("Hello message sent.\n");
+    sendto(gsockfd, pkt_data,n_real*n_imaginary*3+6*sizeof(int) ,
+          MSG_CONFIRM, (const struct sockaddr *) ((struct rqst_udp_pkt *)rqst)->cliaddr,
+          ((struct rqst_udp_pkt *)rqst)->len);
 
+    free(pkt_data);
+    free_rgb_image(image);
 }
 
 void await_request(struct rqst_udp_pkt * rqst)

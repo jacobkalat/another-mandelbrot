@@ -97,9 +97,9 @@ rgb_image_t *read_ppm_rgb_pipe(){
 rgb_image_t *read_ppm_rgb_mandy(){
 
     rgb_image_t *image;
-    extern double mandelbrot_scale;
-    extern double mandelbrot_real_center;
-    extern double mandelbrot_imaginary_center;
+    double mandelbrot_scale;
+    double mandelbrot_real_center;
+    double mandelbrot_imaginary_center;
     char command[256+1]; // ASCIIZ is string\0
     sprintf(command,
             "~/CLionProjects/mandelbrot/cmake-build-debug/mandelbrot -r%f -i%f -s%f",

@@ -142,32 +142,32 @@ mandy_client/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_client.dir/build.make CMakeFiles/mandy_client.dir/build
 .PHONY : mandy_client/fast
 
-graphics_utilities.o: graphics_utilities.c.o
+graphicslibrary.o: graphicslibrary.c.o
 
-.PHONY : graphics_utilities.o
+.PHONY : graphicslibrary.o
 
 # target to build an object file
-graphics_utilities.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_client.dir/build.make CMakeFiles/mandy_client.dir/graphics_utilities.c.o
-.PHONY : graphics_utilities.c.o
+graphicslibrary.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_client.dir/build.make CMakeFiles/mandy_client.dir/graphicslibrary.c.o
+.PHONY : graphicslibrary.c.o
 
-graphics_utilities.i: graphics_utilities.c.i
+graphicslibrary.i: graphicslibrary.c.i
 
-.PHONY : graphics_utilities.i
+.PHONY : graphicslibrary.i
 
 # target to preprocess a source file
-graphics_utilities.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_client.dir/build.make CMakeFiles/mandy_client.dir/graphics_utilities.c.i
-.PHONY : graphics_utilities.c.i
+graphicslibrary.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_client.dir/build.make CMakeFiles/mandy_client.dir/graphicslibrary.c.i
+.PHONY : graphicslibrary.c.i
 
-graphics_utilities.s: graphics_utilities.c.s
+graphicslibrary.s: graphicslibrary.c.s
 
-.PHONY : graphics_utilities.s
+.PHONY : graphicslibrary.s
 
 # target to generate assembly for a file
-graphics_utilities.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_client.dir/build.make CMakeFiles/mandy_client.dir/graphics_utilities.c.s
-.PHONY : graphics_utilities.c.s
+graphicslibrary.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_client.dir/build.make CMakeFiles/mandy_client.dir/graphicslibrary.c.s
+.PHONY : graphicslibrary.c.s
 
 main.o: main.c.o
 
@@ -232,9 +232,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... mandy_client"
-	@echo "... graphics_utilities.o"
-	@echo "... graphics_utilities.i"
-	@echo "... graphics_utilities.s"
+	@echo "... graphicslibrary.o"
+	@echo "... graphicslibrary.i"
+	@echo "... graphicslibrary.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

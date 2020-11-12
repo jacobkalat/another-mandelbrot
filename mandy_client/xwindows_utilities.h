@@ -6,7 +6,7 @@
 #include <X11/Xos.h>
 #include <stdlib.h>
 #include <math.h>
-#include "graphics_utilities.h"
+#include "graphicslibrary.h"
 
 #ifndef SIMPLEGRAPHICS_XWINDOWS_UTILITIES_H
 #define SIMPLEGRAPHICS_XWINDOWS_UTILITIES_H

@@ -95,7 +95,7 @@ void send_requests(int sockfd,const struct sockaddr * svraddr,
             real_offset  = start_real + r_counter*delta_real;
             real_end  = real_offset + delta_real;
 
-            imaginary_offset  = start_imaginary + r_counter*delta_imaginary;
+            imaginary_offset  = start_imaginary + i_counter*delta_imaginary;
             imaginary_end  = imaginary_offset + delta_imaginary;
             printf("\n %lf,%lf,%d,%lf,%lf,%d",real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
             sprintf(buffer,"%d %d %d %lf,%lf,%d,%lf,%lf,%d",image_number,r_start,i_start,real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
@@ -259,8 +259,10 @@ int main(int argc, char **argv)
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Send the requests
     complex double center = real_center+imaginary_center*I;
+    int image_size = imaginary_segments*real_segments;
 
     send_requests(sockfd,(struct sockaddr *) rqst_pkt->inet_svraddr,10,center,scale,real_segments,imaginary_segments,n);
+    await_responses(sockfd, rqst_pkt,n,image_size);
 
     close(sockfd);
     return 0;

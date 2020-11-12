@@ -89,18 +89,18 @@ CMakeFiles/mandy_client.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mandy_client.dir/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/mandy_client/main.c -o CMakeFiles/mandy_client.dir/main.c.s
 
-CMakeFiles/mandy_client.dir/graphics_utilities.c.o: CMakeFiles/mandy_client.dir/flags.make
-CMakeFiles/mandy_client.dir/graphics_utilities.c.o: ../graphics_utilities.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/mandy_client.dir/graphics_utilities.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mandy_client.dir/graphics_utilities.c.o -c /home/jake/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.c
+CMakeFiles/mandy_client.dir/graphicslibrary.c.o: CMakeFiles/mandy_client.dir/flags.make
+CMakeFiles/mandy_client.dir/graphicslibrary.c.o: ../graphicslibrary.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/mandy_client.dir/graphicslibrary.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mandy_client.dir/graphicslibrary.c.o -c /home/jake/CLionProjects/another-mandelbrot/mandy_client/graphicslibrary.c
 
-CMakeFiles/mandy_client.dir/graphics_utilities.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mandy_client.dir/graphics_utilities.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jake/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.c > CMakeFiles/mandy_client.dir/graphics_utilities.c.i
+CMakeFiles/mandy_client.dir/graphicslibrary.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mandy_client.dir/graphicslibrary.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jake/CLionProjects/another-mandelbrot/mandy_client/graphicslibrary.c > CMakeFiles/mandy_client.dir/graphicslibrary.c.i
 
-CMakeFiles/mandy_client.dir/graphics_utilities.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mandy_client.dir/graphics_utilities.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.c -o CMakeFiles/mandy_client.dir/graphics_utilities.c.s
+CMakeFiles/mandy_client.dir/graphicslibrary.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mandy_client.dir/graphicslibrary.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/mandy_client/graphicslibrary.c -o CMakeFiles/mandy_client.dir/graphicslibrary.c.s
 
 CMakeFiles/mandy_client.dir/xwindows_utilities.c.o: CMakeFiles/mandy_client.dir/flags.make
 CMakeFiles/mandy_client.dir/xwindows_utilities.c.o: ../xwindows_utilities.c
@@ -118,14 +118,14 @@ CMakeFiles/mandy_client.dir/xwindows_utilities.c.s: cmake_force
 # Object files for target mandy_client
 mandy_client_OBJECTS = \
 "CMakeFiles/mandy_client.dir/main.c.o" \
-"CMakeFiles/mandy_client.dir/graphics_utilities.c.o" \
+"CMakeFiles/mandy_client.dir/graphicslibrary.c.o" \
 "CMakeFiles/mandy_client.dir/xwindows_utilities.c.o"
 
 # External object files for target mandy_client
 mandy_client_EXTERNAL_OBJECTS =
 
 mandy_client: CMakeFiles/mandy_client.dir/main.c.o
-mandy_client: CMakeFiles/mandy_client.dir/graphics_utilities.c.o
+mandy_client: CMakeFiles/mandy_client.dir/graphicslibrary.c.o
 mandy_client: CMakeFiles/mandy_client.dir/xwindows_utilities.c.o
 mandy_client: CMakeFiles/mandy_client.dir/build.make
 mandy_client: CMakeFiles/mandy_client.dir/link.txt

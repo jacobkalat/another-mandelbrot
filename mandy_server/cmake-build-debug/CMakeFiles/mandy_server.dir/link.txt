@@ -1,1 +1,1 @@
-/usr/bin/cc -g CMakeFiles/mandy_server.dir/main.c.o CMakeFiles/mandy_server.dir/UDP_Routines.c.o CMakeFiles/mandy_server.dir/graphics_utilities.c.o CMakeFiles/mandy_server.dir/mandelbrot.c.o -o mandy_server  -lpthread -lm 
+/usr/bin/cc -g CMakeFiles/mandy_server.dir/main.c.o CMakeFiles/mandy_server.dir/UDP_Routines.c.o CMakeFiles/mandy_server.dir/graphicslibrary.c.o CMakeFiles/mandy_server.dir/mandelbrot.c.o -o mandy_server  -lpthread -lm 

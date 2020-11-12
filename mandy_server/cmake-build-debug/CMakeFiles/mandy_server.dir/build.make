@@ -102,18 +102,18 @@ CMakeFiles/mandy_server.dir/UDP_Routines.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mandy_server.dir/UDP_Routines.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/mandy_server/UDP_Routines.c -o CMakeFiles/mandy_server.dir/UDP_Routines.c.s
 
-CMakeFiles/mandy_server.dir/graphics_utilities.c.o: CMakeFiles/mandy_server.dir/flags.make
-CMakeFiles/mandy_server.dir/graphics_utilities.c.o: ../graphics_utilities.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jake/CLionProjects/another-mandelbrot/mandy_server/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/mandy_server.dir/graphics_utilities.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mandy_server.dir/graphics_utilities.c.o -c /home/jake/CLionProjects/another-mandelbrot/mandy_server/graphics_utilities.c
+CMakeFiles/mandy_server.dir/graphicslibrary.c.o: CMakeFiles/mandy_server.dir/flags.make
+CMakeFiles/mandy_server.dir/graphicslibrary.c.o: ../graphicslibrary.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jake/CLionProjects/another-mandelbrot/mandy_server/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/mandy_server.dir/graphicslibrary.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mandy_server.dir/graphicslibrary.c.o -c /home/jake/CLionProjects/another-mandelbrot/mandy_server/graphicslibrary.c
 
-CMakeFiles/mandy_server.dir/graphics_utilities.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mandy_server.dir/graphics_utilities.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jake/CLionProjects/another-mandelbrot/mandy_server/graphics_utilities.c > CMakeFiles/mandy_server.dir/graphics_utilities.c.i
+CMakeFiles/mandy_server.dir/graphicslibrary.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mandy_server.dir/graphicslibrary.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jake/CLionProjects/another-mandelbrot/mandy_server/graphicslibrary.c > CMakeFiles/mandy_server.dir/graphicslibrary.c.i
 
-CMakeFiles/mandy_server.dir/graphics_utilities.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mandy_server.dir/graphics_utilities.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/mandy_server/graphics_utilities.c -o CMakeFiles/mandy_server.dir/graphics_utilities.c.s
+CMakeFiles/mandy_server.dir/graphicslibrary.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mandy_server.dir/graphicslibrary.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/mandy_server/graphicslibrary.c -o CMakeFiles/mandy_server.dir/graphicslibrary.c.s
 
 CMakeFiles/mandy_server.dir/mandelbrot.c.o: CMakeFiles/mandy_server.dir/flags.make
 CMakeFiles/mandy_server.dir/mandelbrot.c.o: ../mandelbrot.c
@@ -132,7 +132,7 @@ CMakeFiles/mandy_server.dir/mandelbrot.c.s: cmake_force
 mandy_server_OBJECTS = \
 "CMakeFiles/mandy_server.dir/main.c.o" \
 "CMakeFiles/mandy_server.dir/UDP_Routines.c.o" \
-"CMakeFiles/mandy_server.dir/graphics_utilities.c.o" \
+"CMakeFiles/mandy_server.dir/graphicslibrary.c.o" \
 "CMakeFiles/mandy_server.dir/mandelbrot.c.o"
 
 # External object files for target mandy_server
@@ -140,7 +140,7 @@ mandy_server_EXTERNAL_OBJECTS =
 
 mandy_server: CMakeFiles/mandy_server.dir/main.c.o
 mandy_server: CMakeFiles/mandy_server.dir/UDP_Routines.c.o
-mandy_server: CMakeFiles/mandy_server.dir/graphics_utilities.c.o
+mandy_server: CMakeFiles/mandy_server.dir/graphicslibrary.c.o
 mandy_server: CMakeFiles/mandy_server.dir/mandelbrot.c.o
 mandy_server: CMakeFiles/mandy_server.dir/build.make
 mandy_server: CMakeFiles/mandy_server.dir/link.txt

@@ -76,10 +76,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.c">
+		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/mandy_client/graphicslibrary.c">
 			<Option target="mandy_client"/>
 		</Unit>
-		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/mandy_client/graphics_utilities.h">
+		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/mandy_client/graphicslibrary.h">
 			<Option target="mandy_client"/>
 		</Unit>
 		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/mandy_client/main.c">

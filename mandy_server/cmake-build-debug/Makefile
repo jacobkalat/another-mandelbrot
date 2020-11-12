@@ -169,32 +169,32 @@ UDP_Routines.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_server.dir/build.make CMakeFiles/mandy_server.dir/UDP_Routines.c.s
 .PHONY : UDP_Routines.c.s
 
-graphics_utilities.o: graphics_utilities.c.o
+graphicslibrary.o: graphicslibrary.c.o
 
-.PHONY : graphics_utilities.o
+.PHONY : graphicslibrary.o
 
 # target to build an object file
-graphics_utilities.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_server.dir/build.make CMakeFiles/mandy_server.dir/graphics_utilities.c.o
-.PHONY : graphics_utilities.c.o
+graphicslibrary.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_server.dir/build.make CMakeFiles/mandy_server.dir/graphicslibrary.c.o
+.PHONY : graphicslibrary.c.o
 
-graphics_utilities.i: graphics_utilities.c.i
+graphicslibrary.i: graphicslibrary.c.i
 
-.PHONY : graphics_utilities.i
+.PHONY : graphicslibrary.i
 
 # target to preprocess a source file
-graphics_utilities.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_server.dir/build.make CMakeFiles/mandy_server.dir/graphics_utilities.c.i
-.PHONY : graphics_utilities.c.i
+graphicslibrary.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_server.dir/build.make CMakeFiles/mandy_server.dir/graphicslibrary.c.i
+.PHONY : graphicslibrary.c.i
 
-graphics_utilities.s: graphics_utilities.c.s
+graphicslibrary.s: graphicslibrary.c.s
 
-.PHONY : graphics_utilities.s
+.PHONY : graphicslibrary.s
 
 # target to generate assembly for a file
-graphics_utilities.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_server.dir/build.make CMakeFiles/mandy_server.dir/graphics_utilities.c.s
-.PHONY : graphics_utilities.c.s
+graphicslibrary.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mandy_server.dir/build.make CMakeFiles/mandy_server.dir/graphicslibrary.c.s
+.PHONY : graphicslibrary.c.s
 
 main.o: main.c.o
 
@@ -262,9 +262,9 @@ help:
 	@echo "... UDP_Routines.o"
 	@echo "... UDP_Routines.i"
 	@echo "... UDP_Routines.s"
-	@echo "... graphics_utilities.o"
-	@echo "... graphics_utilities.i"
-	@echo "... graphics_utilities.s"
+	@echo "... graphicslibrary.o"
+	@echo "... graphicslibrary.i"
+	@echo "... graphicslibrary.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

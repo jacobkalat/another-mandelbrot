@@ -6,25 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/jake/CLionProjects/another-mandelbrot/mandy_server/UDP_Routines.c
+/home/jake/CLionProjects/another-mandelbrot/mandy_server/graphicslibrary.h
+math.h
+-
 stdio.h
 -
 stdlib.h
 -
-unistd.h
--
 string.h
 -
-sys/types.h
--
-sys/socket.h
--
-netinet/in.h
--
-pthread.h
--
-UDP_Routines.h
-/home/jake/CLionProjects/another-mandelbrot/mandy_server/UDP_Routines.h
 
-/home/jake/CLionProjects/another-mandelbrot/mandy_server/UDP_Routines.h
+/home/jake/CLionProjects/another-mandelbrot/mandy_server/mandelbrot.c
+graphicslibrary.h
+/home/jake/CLionProjects/another-mandelbrot/mandy_server/graphicslibrary.h
+mandelbrot.h
+/home/jake/CLionProjects/another-mandelbrot/mandy_server/mandelbrot.h
+
+/home/jake/CLionProjects/another-mandelbrot/mandy_server/mandelbrot.h
+complex.h
+-
 

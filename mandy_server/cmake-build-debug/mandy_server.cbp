@@ -82,10 +82,10 @@
 		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/mandy_server/UDP_Routines.h">
 			<Option target="mandy_server"/>
 		</Unit>
-		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/mandy_server/graphics_utilities.c">
+		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/mandy_server/graphicslibrary.c">
 			<Option target="mandy_server"/>
 		</Unit>
-		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/mandy_server/graphics_utilities.h">
+		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/mandy_server/graphicslibrary.h">
 			<Option target="mandy_server"/>
 		</Unit>
 		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/mandy_server/main.c">
