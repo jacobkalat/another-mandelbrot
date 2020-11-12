@@ -85,11 +85,12 @@ void send_requests(int sockfd,const struct sockaddr * svraddr,
     const double start_imaginary = cimag(center)-extent/(2.*scale);
 
     // we  need to send start_real,start_imaginary,end_real,end_imaginary,n_real,n_imaginary)
-    int r_counter;
-    int i_counter;
+    int r_counter,r_start;
+    int i_counter,i_start;
+
     double real_offset,real_end,imaginary_offset,imaginary_end;
-    for (r_counter=0;r_counter<real_segs; r_counter++)
-        for (i_counter=0;i_counter<imaginary_segs; i_counter++){
+    for (r_counter=0,r_start=0;r_counter<real_segs; r_counter++,r_start+=n_real)
+        for (i_counter=0,i_start=0;i_counter<imaginary_segs; i_counter++,i_start+=n_imaginary){
             // make a packet
             real_offset  = start_real + r_counter*delta_real;
             real_end  = real_offset + delta_real;
@@ -97,8 +98,8 @@ void send_requests(int sockfd,const struct sockaddr * svraddr,
             imaginary_offset  = start_imaginary + r_counter*delta_imaginary;
             imaginary_end  = imaginary_offset + delta_imaginary;
             printf("\n %lf,%lf,%d,%lf,%lf,%d",real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
-            sprintf(buffer,"%d %lf,%lf,%d,%lf,%lf,%d",image_number,real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
-            int len = sizeof(const struct sockaddr_in);
+            sprintf(buffer,"%d %d %d %lf,%lf,%d,%lf,%lf,%d",image_number,r_start,i_start,real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
+            int len = sizeof( struct sockaddr_in);
             sendto(sockfd, (const char *)buffer, strlen(buffer),
                    MSG_CONFIRM, (const struct sockaddr *) svraddr,
                    len);
