@@ -4,6 +4,7 @@
 CMakeFiles/mandy_client.dir/graphics_utilities.c.o: ../graphics_utilities.c
 CMakeFiles/mandy_client.dir/graphics_utilities.c.o: ../graphics_utilities.h
 
+CMakeFiles/mandy_client.dir/main.c.o: ../graphicslibrary.h
 CMakeFiles/mandy_client.dir/main.c.o: ../main.c
 
 CMakeFiles/mandy_client.dir/xwindows_utilities.c.o: ../graphics_utilities.h

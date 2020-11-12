@@ -10,6 +10,7 @@
 #include <libconfig.h>
 #include <argp.h>
 #include <complex.h>
+#include "graphicslibrary.h"
 
 #define PORT	 8080
 #define MAXLINE 1024
@@ -109,12 +110,36 @@ void send_requests(int sockfd,const struct sockaddr * svraddr,
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Receive response from server
-void await_responses(){
+void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_number,int image_size){
     // expected image number
     // dump all packets which are not expected
     // we know how many packets for a completed image wait for those
     // if time_out request resend... this should not happen on a single machine
 
+    int image_number, n;
+    unsigned char buffer[MAXLINE];
+    int len = sizeof(struct sockaddr_in);
+
+    rgb_image_t *image;
+    image = malloc(sizeof(rgb_image_t));
+    image->image_size_x=image_size;
+    image->image_size_y=image_size;
+    image->image_data = malloc(image->image_size_x * image->image_size_y * 3);
+
+
+    while (expected_number-- > 0) {
+        n = recvfrom(sockfd, (char *) buffer, MAXLINE,
+                     MSG_WAITALL, (struct sockaddr *) rqst_pkt->inet_svraddr,
+                     &len);
+        printf("\n Data-->");
+        printf("%d,%d,%d,%d %d %d:",
+               ((int *)buffer)[0],((int *)buffer)[1],
+               ((int *)buffer)[2],((int *)buffer)[3],
+               ((int *)buffer)[4],((int *)buffer)[5]
+        );
+        for(int i=0;i<n;i++)
+            printf("%d,",buffer[i+6*sizeof(int)]);
+    }
 
     // this could return the populated rgb image..
 }
@@ -176,13 +201,13 @@ int main(int argc, char **argv)
     //Data format "x y scale n max_iterations"
     char *hello = "0 0 2 512 1024";
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Setting up the socket
     int sockfd;
     struct rqst_udp_pkt * rqst_pkt= make_rqst();
     sockfd = open_inet_server_socket(PORT, rqst_pkt);
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Set up the config file
     config_t cfg, *cf;
     cf = &cfg;
@@ -197,7 +222,7 @@ int main(int argc, char **argv)
         return(EXIT_FAILURE);
     }
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Set some values from the config file
     config_lookup_float(cf,"defaults.real_center", &real_center);
     config_lookup_int(cf,"defaults.real_segments", &real_segments);
@@ -209,7 +234,7 @@ int main(int argc, char **argv)
     config_lookup_int(cf,"defaults.scale", &scale);
     config_lookup_string(cf,"defaults.filename", &filename);
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Parse command line args
 
     struct argp_option options[] =
@@ -226,12 +251,12 @@ int main(int argc, char **argv)
     struct argp argp = { options, parse_opt,0,0};
     argp_parse(&argp,argc,argv,0,0,0);
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Test some stuff
     printf("%f %d %f %d %d %d %s\n",real_center, real_segments, imaginary_center, imaginary_segments, scale, n, filename);
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//Send the requests
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //Send the requests
     complex double center = real_center+imaginary_center*I;
 
     send_requests(sockfd,(struct sockaddr *) rqst_pkt->inet_svraddr,10,center,scale,real_segments,imaginary_segments,n);
