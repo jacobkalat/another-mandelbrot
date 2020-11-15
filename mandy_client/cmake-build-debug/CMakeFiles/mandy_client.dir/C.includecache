@@ -31,6 +31,8 @@ sys/socket.h
 -
 arpa/inet.h
 -
+sys/un.h
+-
 netinet/in.h
 -
 libconfig.h

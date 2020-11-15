@@ -44,7 +44,8 @@ void hsv_to_rgb(int hue, int min, int max, rgb_t *p)
 void write_rgb_file(char *filename,rgb_image_t *image) {
 
     int i, j,im_ptr;
-    FILE *fp = fopen("first.ppm", "wb"); /* b - binary mode */
+    FILE *fp = fopen(filename, "wb"); /* b - binary mode */
+
     fprintf(fp, "P6\n%d %d\n255\n", image->image_size_x, image->image_size_y);
     im_ptr =0;
     for (j = 0; j < image->image_size_y; ++j) {

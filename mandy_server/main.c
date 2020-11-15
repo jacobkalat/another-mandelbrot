@@ -1,9 +1,7 @@
 
 //https://www.geeksforgeeks.org/udp-server-client-implementation-c/
 // Server side implementation of UDP client-server model
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -19,12 +17,16 @@ int gsockfd;
 
 // Driver code
 int main() {
+
     static int count=0;
 
     pthread_t tid;
-    gsockfd=open_inet_udp_socket(PORT);
+    //gsockfd=open_inet_udp_socket(PORT);
+    gsockfd=open_uxds_udp_socket();
+
     while (1) {
         //  await request
+
         struct rqst_udp_pkt *rqst=make_rqst();
         rqst->number=count;
         await_request(rqst);
