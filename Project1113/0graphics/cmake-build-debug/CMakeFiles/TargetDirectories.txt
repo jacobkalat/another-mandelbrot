@@ -1,0 +1,3 @@
+/home/mint/CLionProjects/Project1113/graphics/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/mint/CLionProjects/Project1113/graphics/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/mint/CLionProjects/Project1113/graphics/cmake-build-debug/CMakeFiles/graphics.dir

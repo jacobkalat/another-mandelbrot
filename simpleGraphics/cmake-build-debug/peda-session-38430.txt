@@ -1,0 +1,3 @@
+break /home/jake/CLionProjects/another-mandelbrot/simpleGraphics/main.c:41
+
+set exec-wrapper The wrapper for running programs is \

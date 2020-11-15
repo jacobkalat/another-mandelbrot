@@ -1,0 +1,6 @@
+break /home/jake/CLionProjects/another-mandelbrot/simpleGraphics/main.c:41
+disable $bpnum
+break /home/jake/CLionProjects/another-mandelbrot/simpleGraphics/graphics_utilities.c:100
+disable $bpnum
+
+set exec-wrapper The wrapper for running programs is \
