@@ -8,8 +8,8 @@ Display *dis;
 int screen;
 Window win;
 GC gc;
-const int window_size_x = 800;
-const int window_size_y = 800;
+const int window_size_x = 512;
+const int window_size_y = 512;
 
 
 void init_x() {

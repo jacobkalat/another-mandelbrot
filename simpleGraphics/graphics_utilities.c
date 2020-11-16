@@ -95,27 +95,22 @@ rgb_image_t *read_ppm_rgb_pipe(){
     return image;
 
 }
-rgb_image_t *read_ppm_rgb_mandy(){
+rgb_image_t *read_ppm_rgb_mandy(double mandelbrot_scale, double mandelbrot_real_center, double mandelbrot_imaginary_center){
 
     rgb_image_t *image;
-    double mandelbrot_scale = 2.0;
-    double mandelbrot_real_center = 0.0;
-    double mandelbrot_imaginary_center = 0.0;
     char command[256+1]; // ASCIIZ is string\0
+
     sprintf(command,
-            "/home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/mandy_client -x%f -y%f -s%f",
+            "~/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/mandy_client -x=%f -y=%f -s=%f",
             mandelbrot_real_center,
             mandelbrot_imaginary_center,
             1.0*mandelbrot_scale);
 
-    FILE *fp = popen(command, "rw");
-
+    FILE *fp = popen(command, "r");
+//    image = read_ppm_rgb_file("/home/jake/CLionProjects/another-mandelbrot/mandy_client/cmake-build-debug/mandy.ppm");
     image = get_ppm(fp);
-
     pclose(fp);
-
     return image;
-
 }
 
 #define PPMREADBUFLEN 1024
@@ -126,14 +121,14 @@ rgb_image_t * get_ppm(FILE *pf)
     unsigned char buf[PPMREADBUFLEN], *t;
     rgb_image_t *image;
 
-
     unsigned int w, h, d;
     int r;
 
     if (pf == NULL) return NULL;
     t = fgets(buf, PPMREADBUFLEN, pf);
     /* the code fails if the white space following "P6" is not '\n' */
-    if ( (t == NULL) || ( strncmp(buf, "P6\n", 3) != 0 ) ) return NULL;
+    if (t == NULL) return NULL;
+    if ( strncmp(buf, "P6\n", 3) != 0 )  return NULL;
     do
     { /* Px formats can have # comments after first line */
         t = fgets(buf, PPMREADBUFLEN, pf);
@@ -141,6 +136,8 @@ rgb_image_t * get_ppm(FILE *pf)
     } while ( strncmp(buf, "#", 1) == 0 );
     r = sscanf(buf, "%u %u", &w, &h);
     if ( r < 2 ) return NULL;
+
+    printf("here2\n");
 
     r = fscanf(pf, "%u", &d);
     if ( (r < 1) || ( d != 255 ) ) return NULL;

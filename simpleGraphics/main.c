@@ -14,10 +14,6 @@ int main () {
     rgb_image_t *image;
     x_event_t mouse_event;
 
-  //  if (isatty(fileno(stdin)))
-  //      image = read_ppm_rgb_file("Mandy.ppm");
-  //  else
-   //     image= read_ppm_rgb_pipe();
     init_x();
     int done = 0;
 	/* look for events while not done */
@@ -41,11 +37,10 @@ int main () {
         mandelbrot_scale=(mouse_event.button==mouse_right_button)?1.0:mandelbrot_scale;
         mandelbrot_real_center=(mouse_event.button==mouse_right_button)?-0.50:mandelbrot_real_center;
         mandelbrot_imaginary_center=(mouse_event.button==mouse_right_button)?0.00:mandelbrot_imaginary_center;
-        printf("%f, %f,%f\n",mandelbrot_real_center,mandelbrot_imaginary_center,mandelbrot_scale);
-        // here we will popen mandelbrot to get a new image
+        printf("%f, %f, %f\n",mandelbrot_real_center,mandelbrot_imaginary_center,mandelbrot_scale);
 
-        image = read_ppm_rgb_mandy();
-//        image = read_ppm_rgb_file("~/CLionProjects/another-mandelbrot/mandy_client/cmake_build_debug/mandy.ppm");
+        // here we will popen mandelbrot to get a new image
+        image = read_ppm_rgb_mandy(mandelbrot_scale, mandelbrot_real_center, mandelbrot_imaginary_center);
 
         display_image(image);
 	}

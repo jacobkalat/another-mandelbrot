@@ -5,8 +5,9 @@
 #ifndef UDPSERVER_UDP_ROUTINES_H
 #define UDPSERVER_UDP_ROUTINES_H
 
+#define HEADER_SZ (6*sizeof(int))
+#define MANDY_MAX (HEADER_SZ + (512*512*3))
 
-#define MAXLINE  1024
 struct rqst_udp_pkt{
     int number;
     struct sockaddr_un * uxds_cliaddr;

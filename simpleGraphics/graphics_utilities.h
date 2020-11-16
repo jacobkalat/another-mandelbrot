@@ -29,7 +29,7 @@ void write_rgb_pipe(rgb_image_t *image);
 
 rgb_image_t * read_ppm_rgb_file(char *file);
 rgb_image_t * read_ppm_rgb_pipe();
-rgb_image_t *read_ppm_rgb_mandy();
+rgb_image_t *read_ppm_rgb_mandy(double mandelbrot_scale, double mandelbrot_real_center, double mandelbrot_imaginary_center);
 
 void free_rgb_image(rgb_image_t *image);
 rgb_image_t * get_ppm(FILE *pf);

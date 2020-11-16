@@ -108,7 +108,7 @@ int process_event(x_event_t *event_data){
         /* use the XLookupString routine to convert the invent
            KeyPress data into regular text.  Weird but necessary...
         */
-        printf("You pressed the %c key!\n",text[0]);
+//        printf("You pressed the %c key!\n",text[0]);
         if (text[0]=='q') {
             return 1;
         }

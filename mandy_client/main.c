@@ -3,9 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <sys/types.h>
 #include <sys/socket.h>
-#include <arpa/inet.h>
 #include <sys/un.h>
 #include <netinet/in.h>
 #include <libconfig.h>
@@ -13,26 +11,23 @@
 #include <complex.h>
 #include "graphicslibrary.h"
 
-#define PORT	 8080
+#define MAXLINE 1024
 #define HEADER_SZ (6*sizeof(int))
 #define MANDY_MAX (HEADER_SZ + (512*512*3))
 
-double real_center;
-int real_segments;
-double imaginary_center;
-int imaginary_segments;
-int image_size;
-double scale;
+double real_center = 0.0;
+int real_segments = 16;
+double imaginary_center = 0.0;
+int imaginary_segments = 16;
+int image_size = 1024;
+double scale = 2.0;
 char filename[20];
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Request packet struct
 struct rqst_udp_pkt{
-    int number;
     struct sockaddr_un * uxds_cliaddr;
     struct sockaddr_un * uxds_svraddr;
-    struct sockaddr_in * inet_cliaddr;
-    struct sockaddr_in * inet_svraddr;
     int len;
     char *rqst_data;
 };
@@ -43,41 +38,18 @@ struct rqst_udp_pkt{
 struct rqst_udp_pkt * make_rqst()
 {
     struct rqst_udp_pkt *rqst = (struct rqst_udp_pkt *) malloc(sizeof(struct rqst_udp_pkt));
-    rqst -> inet_cliaddr = (struct sockaddr_in *) malloc(sizeof(struct sockaddr_in));
     rqst -> uxds_cliaddr = (struct sockaddr_un *) malloc(sizeof(struct sockaddr_un));
-    rqst -> inet_svraddr = (struct sockaddr_in *) malloc(sizeof(struct sockaddr_in));
     rqst -> uxds_svraddr = (struct sockaddr_un *) malloc(sizeof(struct sockaddr_un));
-    rqst -> rqst_data = (char *) malloc(MANDY_MAX);
+    rqst -> rqst_data = (char *) malloc(MAXLINE);
     return rqst;
 }
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//Open network socket
-int open_inet_server_socket(int port, struct rqst_udp_pkt * rqst_pkt)
-{
-    int sockfd;
-    struct sockaddr_in	 servaddr;
-    // Creating socket file descriptor
-    if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
-        perror("socket creation failed");
-        exit(EXIT_FAILURE);
-    }
-
-    memset(rqst_pkt->inet_svraddr, 0, sizeof(struct sockaddr_in));
-
-    // Filling server information
-    rqst_pkt->inet_svraddr->sin_family = AF_INET;
-    rqst_pkt->inet_svraddr->sin_port = htons(PORT);
-    rqst_pkt->inet_svraddr->sin_addr.s_addr = INADDR_ANY;
-
-}
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Open unix domain socket
 int open_uxds_server_socket(char * uxds_udp_server_path, struct rqst_udp_pkt * rqst_pkt)
 {
     int socket_fd;
-
 
     if((socket_fd = socket(AF_UNIX, SOCK_DGRAM, 0)) < 0)
     {
@@ -90,7 +62,6 @@ int open_uxds_server_socket(char * uxds_udp_server_path, struct rqst_udp_pkt * r
     (* (* rqst_pkt).uxds_cliaddr).sun_family = AF_UNIX;
     strcpy((* (* rqst_pkt).uxds_cliaddr).sun_path, "/tmp/UDSDGCLNT");  // This might be best to pass in
 
-//    printf("%s\n",(* (* rqst_pkt).uxds_cliaddr).sun_path);
     unlink((* (* rqst_pkt).uxds_cliaddr).sun_path);
     if(bind(socket_fd, (const struct sockaddr *) (* rqst_pkt).uxds_cliaddr,
             sizeof(struct sockaddr_un)) < 0)
@@ -102,8 +73,6 @@ int open_uxds_server_socket(char * uxds_udp_server_path, struct rqst_udp_pkt * r
     memset(rqst_pkt->uxds_svraddr, 0, sizeof(struct sockaddr_un));
     rqst_pkt->uxds_svraddr->sun_family = AF_UNIX;
     strcpy(rqst_pkt->uxds_svraddr->sun_path, uxds_udp_server_path);
-
-
 
     return socket_fd;
 }
@@ -190,7 +159,7 @@ void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_numb
         for (int r = 0; r < n_real; r++) {
             for (int i = 0; i < n_imaginary; i++) {
 
-                int pixel_location = (i_start + r) * image_size * 3 + (r_start + i) * 3;
+                int pixel_location = (i_start + r) * res_image_size * 3 + (r_start + i) * 3;
                 //printf("%d,",pixel_location);
                 image->image_data[pixel_location + 0] = buffer[pkt_counter++];
                 image->image_data[pixel_location + 1] = buffer[pkt_counter++];
@@ -203,13 +172,11 @@ void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_numb
     //if fd is a terminal write to file
 
 
-    if (isatty(fileno(stdout)))
-    {
-        write_rgb_file((char *)filename,image);
+    if (isatty(fileno(stdout))) {
+        write_rgb_file((char *) filename, image);
     }
     else
     {
-
         write_rgb_pipe(image);
     }
     free_rgb_image(image);
@@ -224,32 +191,32 @@ parse_opt(int key,char *arg, struct argp_state *state)
     {
         case 'x':
         {
-            real_center = atof(arg);
+            real_center = strtod(arg, (char **)NULL);
             break;
         }
         case 'e':
         {
-            real_segments = atoi(arg);
+            real_segments = (int) strtol(arg, (char **)NULL, 10);
             break;
         }
         case 'y':
         {
-            imaginary_center = atof(arg);
+            imaginary_center = strtod(arg, (char **)NULL);
             break;
         }
         case 'm':
         {
-            imaginary_segments = atoi(arg);
+            imaginary_segments = (int) strtol(arg, (char **)NULL, 10);
             break;
         }
         case 's':
         {
-            scale = atof(arg);
+            scale = strtod(arg, (char **)NULL);
             break;
         }
         case 'n':
         {
-            image_size = atoi(arg);
+            image_size = (int) strtol(arg, (char **)NULL, 10);
             break;
         }
         case 'f':
@@ -257,6 +224,8 @@ parse_opt(int key,char *arg, struct argp_state *state)
             strcpy(filename, arg);
             break;
         }
+        default:
+            break;
     }
     return 0;
 }
@@ -266,28 +235,18 @@ parse_opt(int key,char *arg, struct argp_state *state)
 // Driver code
 int main(int argc, char **argv)
 {
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //Default filename
+    filename[0] = '\0';
+    strcpy(filename, "mandy.ppm");
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //Set up the socket
     int sockfd;
-    char buffer[MANDY_MAX];
-    char *hello = "Hello from client";
-    struct sockaddr_in	 servaddr;
-
-    // Creating socket file descriptor
-    if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
-        perror("socket creation failed");
-        exit(EXIT_FAILURE);
-    }
-
-    memset(&servaddr, 0, sizeof(servaddr));
-
-    // Filling server information
-    servaddr.sin_family = AF_INET;
-    servaddr.sin_port = htons(PORT);
-    servaddr.sin_addr.s_addr = INADDR_ANY;
-
 
     struct rqst_udp_pkt * rqst_pkt= make_rqst();
-
     sockfd=open_uxds_server_socket("/tmp/UDSDGSRV",rqst_pkt);
+
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Set up the config file
     config_t cfg, *cf;
@@ -318,9 +277,9 @@ int main(int argc, char **argv)
     config_lookup_string(cf,"defaults.filename", &fileN);
     strcpy(filename,fileN);
 
+
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Parse command line args
-
     struct argp_option options[] =
             {
                     {"real_center",'x',"NUM",0,"Mandelbrot real center"},
@@ -335,9 +294,8 @@ int main(int argc, char **argv)
     struct argp argp = { options, parse_opt,0,0};
     argp_parse(&argp,argc,argv,0,0,0);
 
-    int n;
-    socklen_t len;
-
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //Send requests to server and await the responses
     //printf("\n%f, %f, %d, %d, %d, %d\n",real_center,imaginary_center,real_segments,imaginary_segments,image_size,scale);
     complex double center = real_center+imaginary_center*I;
     int expected_number = real_segments * imaginary_segments;

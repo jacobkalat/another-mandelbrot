@@ -46,7 +46,7 @@ int main () {
 
         printf("%f, %f,%f\n",mandelbrot_real_center,mandelbrot_imaginary_center,mandelbrot_scale);
         // here we will popen mandelbrot to get a new image
-        image = read_ppm_rgb_mandy();
+        image = read_ppm_rgb_pipe();
         display_image(image);
 	}
     free_rgb_image(image);

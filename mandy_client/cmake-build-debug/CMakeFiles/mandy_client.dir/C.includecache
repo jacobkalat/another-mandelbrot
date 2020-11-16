@@ -25,11 +25,7 @@ unistd.h
 -
 string.h
 -
-sys/types.h
--
 sys/socket.h
--
-arpa/inet.h
 -
 sys/un.h
 -

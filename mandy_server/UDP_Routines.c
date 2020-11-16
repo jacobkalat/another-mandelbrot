@@ -21,13 +21,6 @@
 extern int gsockfd;
 
 void *send_response(void  *rqst){
-    char *hello = (char *)malloc(40);
-
-    // ToDo
-    // The request will have the region of interest
-    // calc mandy of the region get the RGB and send it back.
-
-    //  send the rgb_image_t data in the packet
 
     int image_number,n_real,n_imaginary,r_start,i_start;
     double real_offset,real_end,imaginary_offset,imaginary_end;
@@ -68,7 +61,7 @@ void await_request(struct rqst_udp_pkt * rqst)
 {
 
     int n;
-    n = recvfrom(gsockfd, (char *)rqst->rqst_data, MAXLINE,
+    n = recvfrom(gsockfd, (char *)rqst->rqst_data, MANDY_MAX,
                  MSG_WAITALL, ( struct sockaddr *) rqst->uxds_cliaddr,
                  &(rqst->uxds_len));
     rqst->rqst_data[n] = '\0';
@@ -84,7 +77,7 @@ struct rqst_udp_pkt * make_rqst()
     rqst -> uxds_svraddr = (struct sockaddr_un *) malloc(sizeof(struct sockaddr_un));
     rqst->uxds_len = sizeof(struct sockaddr_un);
     rqst->inet_len = sizeof(struct sockaddr_un);
-    rqst -> rqst_data = (char *) malloc(MAXLINE);
+    rqst -> rqst_data = (char *) malloc(MANDY_MAX);
     return rqst;
 }
 
