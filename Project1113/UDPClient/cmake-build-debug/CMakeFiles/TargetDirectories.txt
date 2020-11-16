@@ -1,3 +1,0 @@
-/home/jacobcayetano1/CLionProjects/Project1113/UDPClient/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/jacobcayetano1/CLionProjects/Project1113/UDPClient/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/jacobcayetano1/CLionProjects/Project1113/UDPClient/cmake-build-debug/CMakeFiles/UDPClient.dir
