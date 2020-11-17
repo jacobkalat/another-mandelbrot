@@ -19,7 +19,6 @@ struct rqst_udp_pkt{
     char *rqst_data;
 };
 
-
 void *send_response(void  * rqst);
 void await_request(struct rqst_udp_pkt * rqst);
 struct rqst_udp_pkt * make_rqst();

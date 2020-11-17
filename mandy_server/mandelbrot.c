@@ -93,10 +93,10 @@ rgb_image_t * calculate_mandelbrot(double complex center,
             image->image_data[image_ptr++] = p.g;
             image->image_data[image_ptr++] = p.b;
 
-            //Increment by delta
+            //Increment real
             re += delta;
         }
-        //Increment by delta
+        //Increment imaginary
         im += delta;
 
     }

@@ -15,12 +15,12 @@
 #define HEADER_SZ (6*sizeof(int))
 #define MANDY_MAX (HEADER_SZ + (512*512*3))
 
-double real_center = 0.0;
-int real_segments = 16;
-double imaginary_center = 0.0;
-int imaginary_segments = 16;
-int image_size = 1024;
-double scale = 2.0;
+double real_center;
+int real_segments;
+double imaginary_center;
+int imaginary_segments;
+int image_size ;
+double scale;
 char filename[20];
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,8 +83,8 @@ void send_requests(int sockfd,const struct sockaddr * svraddr,
                    complex double center,double req_scale,int real_segs,int imaginary_segs,int n)
 {
     const double extent = 3.0;
-    int n_real = n/real_segs;           // n needs to be multiple of real_segs
-    int n_imaginary = n/imaginary_segs; // n needs to be multiple of imaginary_segs
+    int n_real = n/real_segs;               // n needs to be multiple of real_segs
+    int n_imaginary = n/imaginary_segs;     // n needs to be multiple of imaginary_segs
     char buffer[128];
     const double delta_real = extent/(1.0*real_segs*req_scale);
     const double delta_imaginary = extent/(1.0*imaginary_segs*req_scale);
