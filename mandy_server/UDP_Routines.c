@@ -1,19 +1,13 @@
 //
-// Created by joel on 10/27/20.
+// Created by jacob on 11/10/20.
 //
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <sys/types.h>
 #include <sys/socket.h>
-
 #include <netinet/in.h>
-
-#include <pthread.h>
-#include <unistd.h>
 #include <sys/un.h>
-
 #include "UDP_Routines.h"
 #include "graphicslibrary.h"
 #include "mandelbrot.h"
@@ -28,12 +22,11 @@ void *send_response(void  *rqst){
            &image_number,&r_start,&i_start,&real_offset,&real_end,&n_real,&imaginary_offset,&imaginary_end,&n_imaginary);
     printf("\n Block--> %lf,%lf,%d,%lf,%lf,%d",real_offset,real_end,n_real,imaginary_offset,imaginary_end,n_imaginary);
 
-
     // need to calculate the subregion and send back the image data
     double complex min = real_offset + imaginary_offset * 1i;
     double complex max = real_end + imaginary_end * 1i;
 
-    rgb_image_t *image= calculate_mandelbrot2(min,max,n_real,n_imaginary,512);
+    rgb_image_t *image= calculate_mandelbrot(min,max,n_real,n_imaginary,512);
 
     // Note: In our multi-threaded server we need unique buffers for each thread so need to malloc
 
@@ -47,25 +40,21 @@ void *send_response(void  *rqst){
     ((int *)pkt_data)[5]= 0;
     memcpy(pkt_data+header_size*sizeof(int),image->image_data,n_real*n_imaginary*3);
 
-
     sendto(gsockfd, pkt_data,n_real*n_imaginary*3+header_size*sizeof(int) ,
            MSG_CONFIRM, (const struct sockaddr *) ((struct rqst_udp_pkt *)rqst)->uxds_cliaddr,
            ((struct rqst_udp_pkt *)rqst)->uxds_len);
 
     free(pkt_data);
     free_rgb_image(image);
-
 }
 
 void await_request(struct rqst_udp_pkt * rqst)
 {
-
     int n;
     n = recvfrom(gsockfd, (char *)rqst->rqst_data, MANDY_MAX,
                  MSG_WAITALL, ( struct sockaddr *) rqst->uxds_cliaddr,
                  &(rqst->uxds_len));
     rqst->rqst_data[n] = '\0';
-
 }
 
 struct rqst_udp_pkt * make_rqst()
@@ -127,7 +116,6 @@ int open_uxds_udp_socket()
     servaddr.sun_family = AF_UNIX;
     strcpy(servaddr.sun_path, "/tmp/UDSDGSRV");
     // Filling server information
-
 
     // Bind the socket with the server address
     unlink("/tmp/UDSDGSRV");

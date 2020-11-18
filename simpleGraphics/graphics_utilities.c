@@ -1,17 +1,10 @@
 //
 // Created by jake on 11/12/20.
 //
+// Adapted from http://rosettacode.org/wiki/Mandelbrot_set#C
 
 #include "graphics_utilities.h"
-
 #include <stdio.h>
-
-//
-// Created by joel on 9/2/20.
-//
-
-
-// Adapted from http://rosettacode.org/wiki/Mandelbrot_set#C
 
 int color_rotate = 0;
 int saturation = 1;
@@ -41,6 +34,7 @@ void hsv_to_rgb(int hue, int min, int max, rgb_t *p)
         default:p->r = c; p->b = X;
     }
 }
+
 void write_rgb_file(char *filename,rgb_image_t *image) {
 
     int i, j,im_ptr;
@@ -77,6 +71,7 @@ void write_rgb_pipe(rgb_image_t *image)
     }
     fclose(fp);
 }
+
 rgb_image_t *read_ppm_rgb_file(char *filename){
     FILE * fp = fopen( filename, "r");
     if (fp == NULL) return NULL;
@@ -85,16 +80,13 @@ rgb_image_t *read_ppm_rgb_file(char *filename){
     return image;
 }
 
-
 rgb_image_t *read_ppm_rgb_pipe(){
 
     rgb_image_t *image;
     image = get_ppm(stdin);
-
-
     return image;
-
 }
+
 rgb_image_t *read_ppm_rgb_mandy(double mandelbrot_scale, double mandelbrot_real_center, double mandelbrot_imaginary_center){
 
     rgb_image_t *image;
@@ -160,8 +152,6 @@ rgb_image_t * get_ppm(FILE *pf)
         return image;
     }
 }
-
-
 
 void free_rgb_image(rgb_image_t *image)
 {

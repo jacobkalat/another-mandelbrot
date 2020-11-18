@@ -5,7 +5,6 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <sys/un.h>
-#include <netinet/in.h>
 #include <libconfig.h>
 #include <argp.h>
 #include <complex.h>
@@ -76,6 +75,8 @@ int open_uxds_server_socket(char * uxds_udp_server_path, struct rqst_udp_pkt * r
 
     return socket_fd;
 }
+
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Send requests
 void send_requests(int sockfd,const struct sockaddr * svraddr,
@@ -123,11 +124,6 @@ void send_requests(int sockfd,const struct sockaddr * svraddr,
 //Receive response from server
 void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_number,int res_image_size) {
 
-    // expected image number
-    // dump all packets which are not expected
-    // we know how many packets for a completed image wait for those
-    // if time_out request resend... this should not happen on a single machine
-
     int image_number, n;
     unsigned char buffer[MANDY_MAX];  //16K
     int len = sizeof(struct sockaddr_un);
@@ -137,7 +133,6 @@ void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_numb
     image->image_size_x=res_image_size;
     image->image_size_y=res_image_size;
     image->image_data = malloc(image->image_size_x * image->image_size_y * 3);
-
 
     while (expected_number-- > 0) {
         n = recvfrom(sockfd, (char *) buffer, MANDY_MAX,
@@ -169,9 +164,6 @@ void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_numb
             //printf("\n");
         }
     }
-    //if fd is a terminal write to file
-
-
     if (isatty(fileno(stdout))) {
         write_rgb_file((char *) filename, image);
     }
@@ -181,6 +173,7 @@ void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_numb
     }
     free_rgb_image(image);
 }
+
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Parsing function
@@ -240,12 +233,14 @@ int main(int argc, char **argv)
     filename[0] = '\0';
     strcpy(filename, "mandy.ppm");
 
+
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Set up the socket
     int sockfd;
 
     struct rqst_udp_pkt * rqst_pkt= make_rqst();
     sockfd=open_uxds_server_socket("/tmp/UDSDGSRV",rqst_pkt);
+
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Set up the config file
@@ -261,6 +256,7 @@ int main(int argc, char **argv)
         config_destroy(cf);
         return(EXIT_FAILURE);
     }
+
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Set some values from the config file
@@ -293,6 +289,7 @@ int main(int argc, char **argv)
             };
     struct argp argp = { options, parse_opt,0,0};
     argp_parse(&argp,argc,argv,0,0,0);
+
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Send requests to server and await the responses
