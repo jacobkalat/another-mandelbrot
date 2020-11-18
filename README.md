@@ -1,8 +1,8 @@
 # Mandelbrot Project - CS455 System Programing
 
-Project to explore interprocess communication. 
+Project to explore interprocess communication and multithreading. 
 
-Client Application which displays the Mandelbrot set with the current functionality and the following modifications.
+Client Application which creates an image of the Mandelbrot set with the current functionality and the following modifications.
 
 - The client can either use a network socket with a given ip address and port or unix domain socket with a specified file
 - The client will use UDP to make requests to a server which calculates regions of the Mandelbrot set.  The request will provide real_min, real_max, imaginary_min,imaginary_max, steps_real,steps_imaginary
