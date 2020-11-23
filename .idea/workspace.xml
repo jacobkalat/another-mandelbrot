@@ -9,7 +9,26 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8567c0a4-5806-41e9-8f62-54055b056197" name="Default Changelist" comment="" />
+    <list default="true" id="8567c0a4-5806-41e9-8f62-54055b056197" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/mandy_client.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/mandy_client.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/mandy_client.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/mandy_client.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/mandy_client.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/mandy_client.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/mandy_client.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/mandy_client.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/mandy_client.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/mandy_client.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_client/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_client/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_client/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_client/cmake-build-debug/mandy_client.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_client/cmake-build-debug/mandy_client.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_server/cmake-build-debug/CMakeFiles/mandy_server.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_server/cmake-build-debug/CMakeFiles/mandy_server.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_server/cmake-build-debug/CMakeFiles/mandy_server.dir/UDP_Routines.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_server/cmake-build-debug/CMakeFiles/mandy_server.dir/UDP_Routines.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_server/cmake-build-debug/CMakeFiles/mandy_server.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_server/cmake-build-debug/CMakeFiles/mandy_server.dir/main.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_server/cmake-build-debug/CMakeFiles/mandy_server.dir/mandelbrot.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_server/cmake-build-debug/CMakeFiles/mandy_server.dir/mandelbrot.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mandy_server/cmake-build-debug/mandy_server" beforeDir="false" afterPath="$PROJECT_DIR$/mandy_server/cmake-build-debug/mandy_server" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simpleGraphics/cmake-build-debug/CMakeFiles/simpleGraphics.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/simpleGraphics/cmake-build-debug/CMakeFiles/simpleGraphics.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simpleGraphics/cmake-build-debug/CMakeFiles/simpleGraphics.dir/graphics_utilities.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/simpleGraphics/cmake-build-debug/CMakeFiles/simpleGraphics.dir/graphics_utilities.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simpleGraphics/cmake-build-debug/simpleGraphics" beforeDir="false" afterPath="$PROJECT_DIR$/simpleGraphics/cmake-build-debug/simpleGraphics" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simpleGraphics/graphics_utilities.c" beforeDir="false" afterPath="$PROJECT_DIR$/simpleGraphics/graphics_utilities.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mandy_server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -41,6 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605045081934</updated>
       <workItem from="1605045082960" duration="11000" />
+      <workItem from="1605892763264" duration="2000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mint/CLionProjects/Project1113/graphics/graphicslibrary.c
+graphicslibrary.h
+/home/mint/CLionProjects/Project1113/graphics/graphicslibrary.h
+stdio.h
+-
+
+/home/mint/CLionProjects/Project1113/graphics/graphicslibrary.h
+math.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+

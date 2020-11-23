@@ -1,3 +1,0 @@
-break /home/jake/CLionProjects/another-mandelbrot/mandy_client/main.c:173
-
-set exec-wrapper The wrapper for running programs is \

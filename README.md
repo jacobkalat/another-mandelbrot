@@ -1,6 +1,6 @@
 # Mandelbrot Project - CS455 System Programing
 
-Project to explore interprocess communication and multithreading. 
+Project to explore interprocess communication and parallel processing. 
 
 Mandy_Client Application outputs an image of the Mandelbrot set with specified center and scale to file or to pipe.
 
@@ -11,3 +11,6 @@ Mandy_Client Application outputs an image of the Mandelbrot set with specified c
 Mandy_Server Application listens at the UDP socket and uses a separate thread per request to service the request. The returned information is a packet of RGB data representing the Mandelbrot set in the specified region. 
 
 The client/server (completed project) uses C and runs on a POSIX system.  Unit testing is found in /testing.
+
+## To be completed
+- Fix internet sockets
