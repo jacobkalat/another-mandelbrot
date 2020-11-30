@@ -14,6 +14,8 @@
 
 #define PORT	 8080
 #define MAXLINE 1024
+#define HEADER_SZ (6*sizeof(int))
+#define MANDY_MAX (HEADER_SZ + (512*512*3))
 
 //Graphics library needs these to build
 double mandelbrot_scale = 1.0;
@@ -128,13 +130,8 @@ void send_requests(int sockfd,const struct sockaddr * svraddr,
     }
 }
 void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_number,int image_size,char* fileN,int uxds) {
-    // expected image number
-    // dump all packets which are not expected
-    // we know how many packets for a completed image wait for those
-    // if time_out request resend... this should not happen on a single machine
-
     int image_number, n;
-    unsigned char buffer[MAXLINE*16];  //16K
+    unsigned char buffer[MANDY_MAX];  //16K
     int len;
     if(uxds == 0)
     {
@@ -156,13 +153,13 @@ void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_numb
 
         if(uxds == 0)
         {
-            n = recvfrom(sockfd, (char *) buffer, MAXLINE*16,
+            n = recvfrom(sockfd, (char *) buffer, MANDY_MAX,
                          MSG_WAITALL, (struct sockaddr *) rqst_pkt->inet_svraddr,
                          &len);
         }
         else
         {
-            n = recvfrom(sockfd, (char *) buffer, MAXLINE*16,
+            n = recvfrom(sockfd, (char *) buffer, MANDY_MAX,
                          MSG_WAITALL, (struct sockaddr *) rqst_pkt->uxds_svraddr,
                          &len);
         }
@@ -317,12 +314,12 @@ int main(int argc, char **argv) {
     if(mandyArgs.uxds == 0)
     {
         sockfd=open_inet_server_socket(rqst_pkt,PORT);
-        send_requests(sockfd,(struct sockaddr *) rqst_pkt->inet_svraddr,10,center,mandyArgs.scale,16,16,mandyArgs.image_size);
+        send_requests(sockfd,(struct sockaddr *) rqst_pkt->inet_svraddr,1,center,mandyArgs.scale,mandyArgs.realSegments,mandyArgs.imagSegments,mandyArgs.image_size);
     }
     else
     {
         sockfd=open_uxds_server_socket(rqst_pkt);
-        send_requests(sockfd,(struct sockaddr *) rqst_pkt->uxds_svraddr,10,center,mandyArgs.scale,16,16,mandyArgs.image_size);
+        send_requests(sockfd,(struct sockaddr *) rqst_pkt->uxds_svraddr,1,center,mandyArgs.scale,mandyArgs.realSegments,mandyArgs.imagSegments,mandyArgs.image_size);
     }
 
     await_responses(sockfd, rqst_pkt,expected_number,mandyArgs.image_size,mandyArgs.fileN,mandyArgs.uxds);
