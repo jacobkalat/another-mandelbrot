@@ -8,14 +8,10 @@
 int main(int argc, char **argv)
 {
     config_t cfg, *cf;
-    const config_setting_t *retries;
-    const char *base = NULL;
-    int count, n, enabled;
-
     cf = &cfg;
     config_init(cf);
 
-    if (!config_read_file(cf, "ldap.cfg")) {
+    if (!config_read_file(cf, "mandy.cfg")) {
         fprintf(stderr, "%s:%d - %s\n",
                 config_error_file(cf),
                 config_error_line(cf),
@@ -23,25 +19,21 @@ int main(int argc, char **argv)
         config_destroy(cf);
         return(EXIT_FAILURE);
     }
-    //Lookup a boolean
-    if (config_lookup_bool(cf, "enabled", &enabled))
-        printf("Enabled: %s\n", enabled ? "Yep" : "Nope");
-    else
-        printf("Enabled is not defined\n");
+
+    //Lookup a float
+    double center;
+    config_lookup_float(cf, "defaults.center", &center);
+    printf("Center: %f\n", center);
 
     //Lookup a string
-    if (config_lookup_string(cf, "ldap.base", &base))
-        printf("Host: %s\n", base);
+    char *filename = "";
+    config_lookup_string(cf, "defaults.filename",(const char **) &filename);
+    printf("Filename: %s\n", filename);
 
-    //Lookup int array
-    retries = config_lookup(cf, "ldap.retries");
-    count = config_setting_length(retries);
-
-    printf("I have %d retries:\n", count);
-    for (n = 0; n < count; n++) {
-        printf("\t#%d. %d\n", n + 1,
-               config_setting_get_int_elem(retries, n));
-    }
+    //Lookup int
+    int uxds;
+    config_lookup_int(cf, "defaults.uxds",&uxds);
+    printf("UXDS: %d\n",uxds);
 
     config_destroy(cf);
     return 0;

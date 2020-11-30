@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/jake/CLionProjects/another-mandelbrot/test_client_NET/main.c" "/home/jake/CLionProjects/another-mandelbrot/test_client_NET/cmake-build-debug/CMakeFiles/UDPClient.dir/main.c.o"
+  "/home/jake/CLionProjects/another-mandelbrot/testing/test_argp_and_config/main.c" "/home/jake/CLionProjects/another-mandelbrot/testing/test_argp_and_config/cmake-build-debug/CMakeFiles/test_argp_and_config.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

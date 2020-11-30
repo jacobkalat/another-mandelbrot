@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/jake/CLionProjects/another-mandelbrot/test_server_NET/UDP_Routines.c
+/home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/UDP_Routines.c
 stdio.h
 -
 stdlib.h
@@ -24,11 +24,11 @@ netinet/in.h
 pthread.h
 -
 UDP_Routines.h
-/home/jake/CLionProjects/another-mandelbrot/test_server_NET/UDP_Routines.h
+/home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/UDP_Routines.h
 
-/home/jake/CLionProjects/another-mandelbrot/test_server_NET/UDP_Routines.h
+/home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/UDP_Routines.h
 
-/home/jake/CLionProjects/another-mandelbrot/test_server_NET/main.c
+/home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/main.c
 stdio.h
 -
 stdlib.h
@@ -46,5 +46,5 @@ netinet/in.h
 pthread.h
 -
 UDP_Routines.h
-/home/jake/CLionProjects/another-mandelbrot/test_server_NET/UDP_Routines.h
+/home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/UDP_Routines.h
 

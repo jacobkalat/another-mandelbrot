@@ -46,10 +46,18 @@ void *send_response(void  *rqst){
     ((int *)pkt_data)[5]= 0;
     memcpy(pkt_data+header_size*sizeof(int),image->image_data,n_real*n_imaginary*3);
 
-
-    sendto(gsockfd, pkt_data,n_real*n_imaginary*3+header_size*sizeof(int) ,
-           MSG_CONFIRM, (const struct sockaddr *) ((struct rqst_udp_pkt *)rqst)->uxds_cliaddr,
-           ((struct rqst_udp_pkt *)rqst)->uxds_len);
+    if(((struct rqst_udp_pkt *)rqst)->uxds == 0)
+    {
+        sendto(gsockfd, pkt_data,n_real*n_imaginary*3+header_size*sizeof(int) ,
+               MSG_CONFIRM, (const struct sockaddr *) ((struct rqst_udp_pkt *)rqst)->inet_cliaddr,
+               ((struct rqst_udp_pkt *)rqst)->inet_len);
+    }
+    else
+    {
+        sendto(gsockfd, pkt_data,n_real*n_imaginary*3+header_size*sizeof(int) ,
+               MSG_CONFIRM, (const struct sockaddr *) ((struct rqst_udp_pkt *)rqst)->uxds_cliaddr,
+               ((struct rqst_udp_pkt *)rqst)->uxds_len);
+    }
 
     free(pkt_data);
     free_rgb_image(image);
@@ -76,7 +84,7 @@ void await_request(struct rqst_udp_pkt * rqst, int uxds)
 
 }
 
-struct rqst_udp_pkt * make_rqst()
+struct rqst_udp_pkt * make_rqst(int uxds)
 {
     struct rqst_udp_pkt *rqst = (struct rqst_udp_pkt *) malloc(sizeof(struct rqst_udp_pkt));
     rqst -> inet_cliaddr = (struct sockaddr_in *) malloc(sizeof(struct sockaddr_in));
@@ -86,10 +94,11 @@ struct rqst_udp_pkt * make_rqst()
     rqst->uxds_len = sizeof(struct sockaddr_un);
     rqst->inet_len = sizeof(struct sockaddr_un);
     rqst -> rqst_data = (char *) malloc(MAXLINE);
+    rqst->uxds = uxds;
     return rqst;
 }
 
-int open_inet_udp_socket(unsigned short port)
+int open_inet_udp_socket(int port)
 {
     struct sockaddr_in servaddr, *cliaddr;
     static int count=0;

@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <argp.h>
-#include <stdlib.h>
-#include <argz.h>
 
 static int
-parse_opt(int key,char *arg, struct argp_state *state)
+parse_opt(int key,char *arg)
 {
     switch(key)
     {
@@ -43,7 +41,6 @@ main (int argc, char **argv)
                     {"filename",'f',0,0,"Name output ppm file"},
                     { 0 }
             };
-    int arg_count = 4;
     struct argp argp = { options, parse_opt,0,0};
     argp_parse(&argp,argc,argv,0,0,0);
     return 0;

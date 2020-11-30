@@ -62,10 +62,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jake/CLionProjects/another-mandelbrot/test_server_NET
+CMAKE_SOURCE_DIR = /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jake/CLionProjects/another-mandelbrot/test_server_NET/cmake-build-debug
+CMAKE_BINARY_DIR = /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/test_server_NET.dir/depend.make
@@ -78,29 +78,29 @@ include CMakeFiles/test_server_NET.dir/flags.make
 
 CMakeFiles/test_server_NET.dir/main.c.o: CMakeFiles/test_server_NET.dir/flags.make
 CMakeFiles/test_server_NET.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jake/CLionProjects/another-mandelbrot/test_server_NET/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/test_server_NET.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/test_server_NET.dir/main.c.o -c /home/jake/CLionProjects/another-mandelbrot/test_server_NET/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/test_server_NET.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/test_server_NET.dir/main.c.o -c /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/main.c
 
 CMakeFiles/test_server_NET.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/test_server_NET.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jake/CLionProjects/another-mandelbrot/test_server_NET/main.c > CMakeFiles/test_server_NET.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/main.c > CMakeFiles/test_server_NET.dir/main.c.i
 
 CMakeFiles/test_server_NET.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/test_server_NET.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/test_server_NET/main.c -o CMakeFiles/test_server_NET.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/main.c -o CMakeFiles/test_server_NET.dir/main.c.s
 
 CMakeFiles/test_server_NET.dir/UDP_Routines.c.o: CMakeFiles/test_server_NET.dir/flags.make
 CMakeFiles/test_server_NET.dir/UDP_Routines.c.o: ../UDP_Routines.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jake/CLionProjects/another-mandelbrot/test_server_NET/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/test_server_NET.dir/UDP_Routines.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/test_server_NET.dir/UDP_Routines.c.o -c /home/jake/CLionProjects/another-mandelbrot/test_server_NET/UDP_Routines.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/test_server_NET.dir/UDP_Routines.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/test_server_NET.dir/UDP_Routines.c.o -c /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/UDP_Routines.c
 
 CMakeFiles/test_server_NET.dir/UDP_Routines.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/test_server_NET.dir/UDP_Routines.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jake/CLionProjects/another-mandelbrot/test_server_NET/UDP_Routines.c > CMakeFiles/test_server_NET.dir/UDP_Routines.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/UDP_Routines.c > CMakeFiles/test_server_NET.dir/UDP_Routines.c.i
 
 CMakeFiles/test_server_NET.dir/UDP_Routines.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/test_server_NET.dir/UDP_Routines.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/test_server_NET/UDP_Routines.c -o CMakeFiles/test_server_NET.dir/UDP_Routines.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/UDP_Routines.c -o CMakeFiles/test_server_NET.dir/UDP_Routines.c.s
 
 # Object files for target test_server_NET
 test_server_NET_OBJECTS = \
@@ -114,7 +114,7 @@ test_server_NET: CMakeFiles/test_server_NET.dir/main.c.o
 test_server_NET: CMakeFiles/test_server_NET.dir/UDP_Routines.c.o
 test_server_NET: CMakeFiles/test_server_NET.dir/build.make
 test_server_NET: CMakeFiles/test_server_NET.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jake/CLionProjects/another-mandelbrot/test_server_NET/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable test_server_NET"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable test_server_NET"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_server_NET.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -127,6 +127,6 @@ CMakeFiles/test_server_NET.dir/clean:
 .PHONY : CMakeFiles/test_server_NET.dir/clean
 
 CMakeFiles/test_server_NET.dir/depend:
-	cd /home/jake/CLionProjects/another-mandelbrot/test_server_NET/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jake/CLionProjects/another-mandelbrot/test_server_NET /home/jake/CLionProjects/another-mandelbrot/test_server_NET /home/jake/CLionProjects/another-mandelbrot/test_server_NET/cmake-build-debug /home/jake/CLionProjects/another-mandelbrot/test_server_NET/cmake-build-debug /home/jake/CLionProjects/another-mandelbrot/test_server_NET/cmake-build-debug/CMakeFiles/test_server_NET.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/cmake-build-debug /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/cmake-build-debug /home/jake/CLionProjects/another-mandelbrot/testing/test_server_NET/cmake-build-debug/CMakeFiles/test_server_NET.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/test_server_NET.dir/depend
 

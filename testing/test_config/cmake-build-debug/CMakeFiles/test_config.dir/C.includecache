@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/jombo/work/CLionProjects/another-mandelbrot/test_config/main.c
+/home/jake/CLionProjects/another-mandelbrot/testing/test_config/main.c
 stdio.h
 -
 stdlib.h

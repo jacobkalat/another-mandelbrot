@@ -1,0 +1,4 @@
+break /home/jake/CLionProjects/another-mandelbrot/UDPServer/main.c:70
+break /home/jake/CLionProjects/another-mandelbrot/UDPServer/main.c:27
+
+set exec-wrapper The wrapper for running programs is \

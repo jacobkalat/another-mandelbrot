@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/test_argp_and_config.dir/main.c.o -o test_argp_and_config  -lm -lconfig 

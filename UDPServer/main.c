@@ -58,7 +58,7 @@ int main() {
     while (1) {
         //  await request
 
-        struct rqst_udp_pkt *rqst=make_rqst();
+        struct rqst_udp_pkt *rqst=make_rqst(uxds);
         rqst->number=count;
         await_request(rqst,uxds);
         pthread_create(&tid, NULL, send_response, (void *) rqst);

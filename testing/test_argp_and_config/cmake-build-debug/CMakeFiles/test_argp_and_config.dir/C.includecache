@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jake/CLionProjects/another-mandelbrot/testing/test_argp_and_config/main.c
+stdio.h
+-
+libconfig.h
+-
+argp.h
+-
+math.h
+-
+stdlib.h
+-
+string.h
+-
+

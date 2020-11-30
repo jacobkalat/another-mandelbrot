@@ -1,4 +1,4 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/jake/CLionProjects/another-mandelbrot/test_client_NET
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/jake/CLionProjects/another-mandelbrot/testing/test_client_NET
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/jake/CLionProjects/another-mandelbrot/test_client_NET/cmake-build-debug
+-- Build files have been written to: /home/jake/CLionProjects/another-mandelbrot/testing/test_client_NET/cmake-build-debug

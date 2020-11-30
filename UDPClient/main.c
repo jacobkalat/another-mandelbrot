@@ -41,7 +41,7 @@ struct rqst_udp_pkt * make_rqst()
     return rqst;
 }
 
-int open_inet_server_socket(int port, struct rqst_udp_pkt * rqst_pkt)
+int open_inet_server_socket(struct rqst_udp_pkt * rqst_pkt, int port)
 {
     int sockfd;
     struct sockaddr_in     servaddr;
@@ -51,7 +51,7 @@ int open_inet_server_socket(int port, struct rqst_udp_pkt * rqst_pkt)
         exit(EXIT_FAILURE);
     }
 
-    memset(rqst_pkt->inet_svraddr, 0, sizeof(struct sockaddr_in));
+    memset(&servaddr, 0, sizeof(servaddr));
 
     // Filling server information
     rqst_pkt->inet_svraddr->sin_family = AF_INET;
@@ -127,7 +127,7 @@ void send_requests(int sockfd,const struct sockaddr * svraddr,
         }
     }
 }
-void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_number,int image_size,char* fileN) {
+void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_number,int image_size,char* fileN,int uxds) {
     // expected image number
     // dump all packets which are not expected
     // we know how many packets for a completed image wait for those
@@ -135,7 +135,15 @@ void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_numb
 
     int image_number, n;
     unsigned char buffer[MAXLINE*16];  //16K
-    int len = sizeof(struct sockaddr_un);
+    int len;
+    if(uxds == 0)
+    {
+        len = sizeof(struct sockaddr_in);
+    }
+    else
+    {
+        len = sizeof(struct sockaddr_un);
+    }
 
     rgb_image_t *image;
     image = malloc(sizeof(rgb_image_t));
@@ -145,9 +153,20 @@ void await_responses(int sockfd,struct rqst_udp_pkt * rqst_pkt,int expected_numb
 
 
     while (expected_number-- > 0) {
-        n = recvfrom(sockfd, (char *) buffer, MAXLINE*16,
-                     MSG_WAITALL, (struct sockaddr *) rqst_pkt->uxds_svraddr,
-                     &len);
+
+        if(uxds == 0)
+        {
+            n = recvfrom(sockfd, (char *) buffer, MAXLINE*16,
+                         MSG_WAITALL, (struct sockaddr *) rqst_pkt->inet_svraddr,
+                         &len);
+        }
+        else
+        {
+            n = recvfrom(sockfd, (char *) buffer, MAXLINE*16,
+                         MSG_WAITALL, (struct sockaddr *) rqst_pkt->uxds_svraddr,
+                         &len);
+        }
+
 
         //printf("\n Data-->");
         /*printf("%d,%d,%d,%d %d %d:\n",
@@ -290,24 +309,23 @@ int main(int argc, char **argv) {
     //Setup the socket based on config file, default uxds
 
     int sockfd;
+    complex double center = mandyArgs.realCenter + mandyArgs.imagCenter*I;
+    int expected_number = mandyArgs.realSegments * mandyArgs.imagSegments;
 
     struct rqst_udp_pkt * rqst_pkt= make_rqst();
 
     if(mandyArgs.uxds == 0)
     {
-        sockfd=open_inet_server_socket(PORT,rqst_pkt);
+        sockfd=open_inet_server_socket(rqst_pkt,PORT);
+        send_requests(sockfd,(struct sockaddr *) rqst_pkt->inet_svraddr,10,center,mandyArgs.scale,16,16,mandyArgs.image_size);
     }
     else
     {
         sockfd=open_uxds_server_socket(rqst_pkt);
+        send_requests(sockfd,(struct sockaddr *) rqst_pkt->uxds_svraddr,10,center,mandyArgs.scale,16,16,mandyArgs.image_size);
     }
 
-    complex double center = mandyArgs.realCenter + mandyArgs.imagCenter*I;
-
-
-    send_requests(sockfd,(struct sockaddr *) rqst_pkt->uxds_svraddr,10,center,mandyArgs.scale,16,16,mandyArgs.image_size);
-
-    await_responses(sockfd, rqst_pkt,64*4,mandyArgs.image_size,mandyArgs.fileN);
+    await_responses(sockfd, rqst_pkt,expected_number,mandyArgs.image_size,mandyArgs.fileN,mandyArgs.uxds);
 
     close(sockfd);
     return 0;

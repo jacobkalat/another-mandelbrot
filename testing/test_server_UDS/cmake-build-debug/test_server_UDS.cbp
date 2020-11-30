@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug"/>
+				<Option working_dir="/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug"/>
+				<Option working_dir="/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug"/>
+				<Option working_dir="/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="test_server_UDS">
-				<Option output="/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/test_server_UDS" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug"/>
+				<Option output="/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/test_server_UDS" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -50,15 +50,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_server_UDS"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_server_UDS"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="test_server_UDS/fast">
-				<Option output="/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/test_server_UDS" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug"/>
+				<Option output="/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/test_server_UDS" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -69,17 +69,17 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_server_UDS/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_server_UDS/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/main.c">
+		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/main.c">
 			<Option target="test_server_UDS"/>
 		</Unit>
-		<Unit filename="/home/jombo/work/CLionProjects/another-mandelbrot/test_server_UDS/CMakeLists.txt">
+		<Unit filename="/home/jake/CLionProjects/another-mandelbrot/testing/test_server_UDS/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

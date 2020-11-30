@@ -16,12 +16,13 @@ struct rqst_udp_pkt{
     int uxds_len;
     int inet_len;
     char *rqst_data;
+    int uxds
 };
 
 
 void *send_response(void  * rqst);
 void await_request(struct rqst_udp_pkt * rqst,int uxds);
-struct rqst_udp_pkt * make_rqst();
-int open_inet_udp_socket(unsigned short port);
+struct rqst_udp_pkt * make_rqst(int uxds);
+int open_inet_udp_socket(int port);
 int open_uxds_udp_socket();
 #endif //UDPSERVER_UDP_ROUTINES_H
