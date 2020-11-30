@@ -13,4 +13,5 @@ Mandy_Server Application listens at the UDP socket and uses a separate thread pe
 The client/server (completed project) uses C and runs on a POSIX system.  Unit testing is found in /testing.
 
 ## To be completed
-- Fix internet sockets
+- Fix internet sockets w/ graphics
+- Implement timeout on client
